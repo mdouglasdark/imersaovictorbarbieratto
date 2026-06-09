@@ -145,8 +145,8 @@ function Proposal() {
 
         <div className="relative mx-auto w-full max-w-6xl px-6 pb-20 pt-32">
           <div className="animate-fade-up">
-            <div className="mb-6 flex items-center gap-3">
-              <span className="text-lg font-bold tracking-[0.35em] text-gradient">DRK VIAGENS</span>
+            <div className="mb-6 flex items-center gap-4">
+              <img src={drkLogo.url} alt="DRK Viagens" width={120} height={108} className="h-16 w-auto" />
               <span className="h-px flex-1 max-w-24 bg-border" />
               <span className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
                 Proposta exclusiva
