@@ -399,7 +399,7 @@ function Proposal() {
       <footer className="border-t border-border">
         <div className="mx-auto flex w-full max-w-6xl flex-col items-start justify-between gap-6 px-6 py-12 md:flex-row md:items-center">
           <div>
-            <p className="text-lg font-bold tracking-[0.35em] text-gradient">DRK VIAGENS</p>
+            <img src={drkLogo.url} alt="DRK Viagens" width={120} height={108} className="h-14 w-auto" />
             <p className="mt-2 text-sm text-muted-foreground">
               Viajar está nos detalhes · Proposta para Victor Barbieratto
             </p>
