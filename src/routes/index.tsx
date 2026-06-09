@@ -14,9 +14,6 @@ import {
   Star,
   Check,
   Sparkles,
-  Wifi,
-  Coffee,
-  Waves,
   CreditCard,
   Wallet,
 } from "lucide-react";
