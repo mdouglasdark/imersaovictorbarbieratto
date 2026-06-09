@@ -21,6 +21,7 @@ import heroKennedy from "@/assets/hero-kennedy.jpg";
 import orlandoImg from "@/assets/orlando.jpg";
 import miamiImg from "@/assets/miami.jpg";
 import flightImg from "@/assets/flight.jpg";
+import drkLogo from "@/assets/drk-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -144,8 +145,8 @@ function Proposal() {
 
         <div className="relative mx-auto w-full max-w-6xl px-6 pb-20 pt-32">
           <div className="animate-fade-up">
-            <div className="mb-6 flex items-center gap-3">
-              <span className="text-lg font-bold tracking-[0.35em] text-gradient">DRK VIAGENS</span>
+            <div className="mb-6 flex items-center gap-4">
+              <img src={drkLogo.url} alt="DRK Viagens" width={120} height={108} className="h-16 w-auto" />
               <span className="h-px flex-1 max-w-24 bg-border" />
               <span className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
                 Proposta exclusiva
@@ -398,7 +399,7 @@ function Proposal() {
       <footer className="border-t border-border">
         <div className="mx-auto flex w-full max-w-6xl flex-col items-start justify-between gap-6 px-6 py-12 md:flex-row md:items-center">
           <div>
-            <p className="text-lg font-bold tracking-[0.35em] text-gradient">DRK VIAGENS</p>
+            <img src={drkLogo.url} alt="DRK Viagens" width={120} height={108} className="h-14 w-auto" />
             <p className="mt-2 text-sm text-muted-foreground">
               Viajar está nos detalhes · Proposta para Victor Barbieratto
             </p>

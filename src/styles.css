@@ -39,41 +39,41 @@
 :root {
   --radius: 0.75rem;
 
-  /* Dark space-tech palette (token-based, easy to retint to DRK brand) */
-  --background: oklch(0.16 0.03 256);
-  --foreground: oklch(0.97 0.01 250);
+  /* DRK Viagens — deep navy + warm silver/champagne metallic */
+  --background: oklch(0.19 0.035 264);
+  --foreground: oklch(0.96 0.008 95);
 
-  --card: oklch(0.2 0.035 256);
-  --card-foreground: oklch(0.97 0.01 250);
+  --card: oklch(0.24 0.04 264);
+  --card-foreground: oklch(0.96 0.008 95);
 
-  --popover: oklch(0.2 0.035 256);
-  --popover-foreground: oklch(0.97 0.01 250);
+  --popover: oklch(0.24 0.04 264);
+  --popover-foreground: oklch(0.96 0.008 95);
 
-  --primary: oklch(0.7 0.14 215);
-  --primary-foreground: oklch(0.16 0.03 256);
+  --primary: oklch(0.79 0.022 100);
+  --primary-foreground: oklch(0.19 0.035 264);
 
-  --secondary: oklch(0.26 0.04 256);
-  --secondary-foreground: oklch(0.97 0.01 250);
+  --secondary: oklch(0.29 0.04 264);
+  --secondary-foreground: oklch(0.96 0.008 95);
 
-  --muted: oklch(0.26 0.04 256);
-  --muted-foreground: oklch(0.72 0.025 250);
+  --muted: oklch(0.29 0.04 264);
+  --muted-foreground: oklch(0.74 0.018 95);
 
-  --accent: oklch(0.7 0.14 215);
-  --accent-foreground: oklch(0.16 0.03 256);
+  --accent: oklch(0.79 0.022 100);
+  --accent-foreground: oklch(0.19 0.035 264);
 
-  --gold: oklch(0.82 0.13 85);
+  --gold: oklch(0.84 0.07 88);
 
   --destructive: oklch(0.62 0.22 25);
-  --destructive-foreground: oklch(0.97 0.01 250);
+  --destructive-foreground: oklch(0.96 0.008 95);
 
-  --border: oklch(0.32 0.04 256);
-  --input: oklch(0.32 0.04 256);
-  --ring: oklch(0.7 0.14 215);
+  --border: oklch(0.34 0.035 264);
+  --input: oklch(0.34 0.035 264);
+  --ring: oklch(0.79 0.022 100);
 
-  --gradient-hero: linear-gradient(180deg, oklch(0.16 0.03 256 / 0.2) 0%, oklch(0.16 0.03 256 / 0.7) 55%, oklch(0.16 0.03 256) 100%);
-  --gradient-accent: linear-gradient(135deg, oklch(0.7 0.14 215), oklch(0.82 0.13 85));
-  --shadow-elegant: 0 24px 60px -20px oklch(0.05 0.03 256 / 0.8);
-  --shadow-glow: 0 0 50px -8px oklch(0.7 0.14 215 / 0.45);
+  --gradient-hero: linear-gradient(180deg, oklch(0.19 0.035 264 / 0.15) 0%, oklch(0.19 0.035 264 / 0.72) 55%, oklch(0.19 0.035 264) 100%);
+  --gradient-accent: linear-gradient(135deg, oklch(0.84 0.07 88), oklch(0.82 0.02 100));
+  --shadow-elegant: 0 24px 60px -20px oklch(0.08 0.03 264 / 0.85);
+  --shadow-glow: 0 0 50px -8px oklch(0.79 0.022 100 / 0.35);
 }
 
 @layer base {
@@ -103,8 +103,8 @@
   }
   .bg-grid {
     background-image:
-      linear-gradient(oklch(0.7 0.14 215 / 0.07) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(0.7 0.14 215 / 0.07) 1px, transparent 1px);
+      linear-gradient(oklch(0.79 0.022 100 / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.79 0.022 100 / 0.06) 1px, transparent 1px);
     background-size: 48px 48px;
   }
   .glass {
