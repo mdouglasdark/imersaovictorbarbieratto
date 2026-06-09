@@ -21,6 +21,7 @@ import heroKennedy from "@/assets/hero-kennedy.jpg";
 import orlandoImg from "@/assets/orlando.jpg";
 import miamiImg from "@/assets/miami.jpg";
 import flightImg from "@/assets/flight.jpg";
+import drkLogo from "@/assets/drk-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
