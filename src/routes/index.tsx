@@ -16,6 +16,11 @@ import {
   Sparkles,
   CreditCard,
   Wallet,
+  Building2,
+  Factory,
+  ShoppingBag,
+  Briefcase,
+  Download,
 } from "lucide-react";
 import heroKennedy from "@/assets/hero-kennedy.jpg";
 import orlandoImg from "@/assets/orlando.jpg";
@@ -26,13 +31,13 @@ import drkLogo from "@/assets/drk-logo.png.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Orlando & Miami · Imersão de Empresários · DRK Viagens" },
+      { title: "E-Commerce Legacy · Orlando & Miami · DRK Viagens" },
       {
         name: "description",
         content:
-          "Roteiro exclusivo Orlando e Miami para 10 empresários — voo direto Azul, hospedagem premium, Centro Espacial Kennedy e mobilidade privativa. Proposta DRK Viagens.",
+          "Roteiro exclusivo Orlando e Miami para 10 empresários — E-Commerce Legacy. Voo direto Azul, hospedagem premium, NASA Cabo Canaveral e mobilidade privativa. Proposta DRK Viagens.",
       },
-      { property: "og:title", content: "Orlando & Miami · Imersão de Empresários" },
+      { property: "og:title", content: "E-Commerce Legacy · Orlando & Miami · DRK Viagens" },
       {
         property: "og:description",
         content: "Proposta de roteiro sofisticado para Victor Barbieratto — DRK Viagens.",
@@ -76,12 +81,21 @@ function Card({ children, className = "" }: { children: React.ReactNode; classNa
   );
 }
 
+function Pill({ icon: Icon, text }: { icon: React.ElementType; text: string }) {
+  return (
+    <span className="inline-flex items-center gap-2 rounded-full border border-border glass px-4 py-2 text-sm font-medium">
+      <Icon className="h-4 w-4 text-primary" />
+      {text}
+    </span>
+  );
+}
+
 const included = [
-  { icon: Plane, label: "Aéreo ida e volta", desc: "Voo direto Azul, assentos fretados particulares" },
+  { icon: Plane, label: "Aéreo ida e volta", desc: "Voo direto Azul, Airbus A330" },
   { icon: Luggage, label: "Bagagens", desc: "2 bagagens de 23 kg por passageiro" },
   { icon: BedDouble, label: "Hospedagem", desc: "Orlando + Miami, hotéis selecionados" },
-  { icon: Rocket, label: "Centro Espacial Kennedy", desc: "Ingresso de 1 dia, experiência completa" },
-  { icon: Car, label: "Van em Orlando", desc: "Ford Transit (15 lugares), 06–19 set" },
+  { icon: Rocket, label: "NASA · Cabo Canaveral", desc: "Visita à base de lançamento, 09/set" },
+  { icon: Car, label: "Van em Orlando", desc: "Ford Transit (15 lugares)" },
   { icon: Bus, label: "Transfer privativo", desc: "Franca ⇄ Aeroporto de Viracopos" },
   { icon: ShieldCheck, label: "Seguro viagem", desc: "Cobertura de USD 60.000 por passageiro" },
   { icon: Sparkles, label: "Curadoria DRK", desc: "Acompanhamento e suporte da imersão" },
@@ -93,49 +107,65 @@ const hotels = [
     city: "Orlando · Flórida",
     name: "Hotel Monreale Express & Studios IDrive District",
     stars: 3,
-    dates: "06 a 13 de setembro · 7 diárias",
-    room: "Estúdio · 2 camas de casal · 7 quartos",
-    perks: ["Piscina", "Wi-Fi grátis", "Estacionamento incluído", "Recepção 24h"],
+    dates: "06 a 10 de setembro · 4 noites",
+    room: "Estúdio · 2 camas de casal · 5 quartos",
+    perks: ["Piscina", "Wi-Fi grátis", "Estacionamento incluído", "Café da manhã disponível", "Recepção 24h"],
   },
   {
     img: miamiImg,
     city: "Miami · Flórida",
     name: "Hilton Garden Inn Miami Brickell South",
     stars: 3,
-    dates: "13 a 16 de setembro · 3 diárias",
-    room: "Quarto · 2 camas Queen · 7 quartos",
-    perks: ["Piscina", "Wi-Fi grátis", "Restaurante", "Academia"],
+    dates: "10 a 14 de setembro · 4 noites",
+    room: "Quarto · 2 camas Queen · 5 quartos",
+    perks: ["Piscina", "Wi-Fi grátis", "Restaurante", "Academia", "Serviços de negócios"],
   },
   {
     img: orlandoImg,
     city: "Orlando · Flórida",
     name: "Hotel Monreale Express & Studios IDrive District",
     stars: 3,
-    dates: "16 a 19 de setembro · 3 diárias",
-    room: "Estúdio · 2 camas de casal · 7 quartos",
-    perks: ["Piscina", "Wi-Fi grátis", "Estacionamento incluído", "Café da manhã"],
+    dates: "14 a 15 de setembro · 1 noite",
+    room: "Estúdio · 2 camas de casal · 5 quartos",
+    perks: ["Piscina", "Wi-Fi grátis", "Estacionamento incluído", "Café da manhã disponível"],
   },
 ];
 
-const kennedyIncludes = [
-  "Gateway: The Deep Space Launch Complex® com Spaceport KSC®",
-  "Space Shuttle Atlantis® e a Shuttle Launch Experience®",
-  "Tour de ônibus pelo Centro Espacial, incluindo Apollo/Saturn V",
+const roteiro = [
+  { date: "05/09", day: "Sábado", items: ["03:00 · Saída de Franca", "09:55 · Voo 8706 VCP › MCO"] },
+  { date: "06/09", day: "Domingo", items: ["Visita a lojas do setor", "Estudo de benchmarking"] },
+  { date: "07/09", day: "Segunda", items: ["Imersão no sistema contábil americano", "Estruturação financeira para negócios nos EUA"] },
+  { date: "08/09", day: "Terça", items: ["Visita a operadores logísticos em Orlando", "Reunião executiva no backstage do Orlando Magic"] },
+  { date: "09/09", day: "Quarta", items: ["Visita a fábricas da região", "NASA · Base de lançamento em Cabo Canaveral"] },
+  { date: "10/09", day: "Quinta", items: ["Reunião no consulado brasileiro · Cônsul da Flórida", "Imersão no setor imobiliário americano", "Orlando › Miami"] },
+  { date: "11/09", day: "Sexta", items: ["Visita ao FBA · Fulfillment by Amazon", "Centros de distribuição em Miami e Doral"] },
+  { date: "12/09", day: "Sábado", items: ["Sawgrass Mills"] },
+  { date: "13/09", day: "Domingo", items: ["Visita a lojas do setor", "Estudo de benchmarking"] },
+  { date: "14/09", day: "Segunda", items: ["Centros de distribuição em Miami e Doral", "Visita ao escritório da Avenue · Miami", "Miami › Orlando"] },
+  { date: "15/09", day: "Terça", items: ["20:00 · Voo 8707 MCO › VCP"] },
+  { date: "16/09", day: "Quarta", items: ["11:00 · Chegada em Franca"] },
+];
+
+const nasaIncludes = [
+  "Visita à base de lançamento de Cabo Canaveral",
+  "Space Shuttle Atlantis® e Shuttle Launch Experience®",
+  "Tour de ônibus pelo Centro Espacial",
+  "Apollo/Saturn V Center",
   "Salão da Fama dos Astronautas dos EUA®",
   "Encontro com um astronauta",
-  "Visitas guiadas ao Rocket Garden",
-  "Journey to Mars e filmes no cinema IMAX®",
-  "Audioguia móvel · funcionamento das 9h às 17h",
+  "Rocket Garden",
+  "Journey to Mars e cinema IMAX®",
 ];
 
 function Proposal() {
   return (
     <main className="min-h-screen bg-background text-foreground">
+
       {/* HERO */}
       <header className="relative flex min-h-screen flex-col justify-end overflow-hidden">
         <img
           src={heroKennedy}
-          alt="Lançamento noturno no Centro Espacial Kennedy"
+          alt="Lançamento noturno na NASA · Cabo Canaveral"
           width={1920}
           height={1080}
           className="absolute inset-0 h-full w-full object-cover"
@@ -153,24 +183,24 @@ function Proposal() {
               </span>
             </div>
             <h1 className="max-w-3xl text-5xl font-bold leading-[0.95] md:text-7xl">
-              Imersão de Empresários
+              E-Commerce Legacy
               <span className="block text-gradient">Orlando &amp; Miami</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground">
               Uma experiência desenhada para 10 empresários — onde a fronteira da tecnologia
-              encontra o alto padrão de viagem.
+              encontra o alto padrão de viagem e negócios nos EUA.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">
               <Pill icon={Users} text="10 empresários + staff" />
-              <Pill icon={CalendarDays} text="05 a 20 de setembro de 2026" />
+              <Pill icon={CalendarDays} text="05 a 16 de setembro de 2026" />
               <Pill icon={MapPin} text="Cliente: Victor Barbieratto" />
             </div>
           </div>
         </div>
       </header>
 
-      {/* INCLUSO */}
+      {/* INCLUSOS */}
       <Section eyebrow="O que está incluído" title={<>Tudo pensado nos <span className="text-gradient">detalhes</span></>}>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {included.map((item) => (
@@ -195,16 +225,18 @@ function Proposal() {
               from={{ time: "09:55", code: "VCP", name: "Viracopos · Campinas" }}
               to={{ time: "18:00", code: "MCO", name: "Orlando Internacional" }}
               duration="9h05 de viagem"
+              flight="Azul · AD 8706 · Airbus A330"
             />
             <Flight
               tag="Volta"
-              date="Sábado, 19 de setembro"
+              date="Terça-feira, 15 de setembro"
               from={{ time: "20:00", code: "MCO", name: "Orlando Internacional" }}
               to={{ time: "06:00 +1", code: "VCP", name: "Viracopos · Campinas" }}
               duration="9h de viagem · durante a noite"
+              flight="Azul · AD 8707 · Airbus A330-900neo"
             />
             <div className="flex flex-wrap gap-3">
-              <Pill icon={Plane} text="Voo direto · Azul · Airbus A330-900neo" />
+              <Pill icon={Plane} text="Voo direto · Azul" />
               <Pill icon={Sparkles} text="Assentos fretados particulares" />
               <Pill icon={Luggage} text="2 bagagens de 23 kg por passageiro" />
             </div>
@@ -219,6 +251,28 @@ function Proposal() {
               className="h-full w-full object-cover"
             />
           </div>
+        </div>
+      </Section>
+
+      {/* ROTEIRO */}
+      <Section id="roteiro" eyebrow="Roteiro" title={<>11 dias de <span className="text-gradient">imersão</span></>}>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {roteiro.map((d) => (
+            <Card key={d.date} className="flex flex-col gap-2 transition-transform hover:-translate-y-1">
+              <div className="flex items-baseline justify-between">
+                <span className="text-2xl font-bold text-gradient">{d.date}</span>
+                <span className="text-xs uppercase tracking-widest text-muted-foreground">{d.day}</span>
+              </div>
+              <ul className="mt-1 space-y-1.5">
+                {d.items.map((item) => (
+                  <li key={item} className="flex gap-2 text-sm text-muted-foreground">
+                    <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          ))}
         </div>
       </Section>
 
@@ -269,31 +323,27 @@ function Proposal() {
         </div>
       </Section>
 
-      {/* KENNEDY */}
-      <Section id="kennedy" eyebrow="Experiência" title={<>Centro Espacial <span className="text-gradient">Kennedy</span></>}>
+      {/* NASA */}
+      <Section id="nasa" eyebrow="Experiência" title={<>NASA · Cabo <span className="text-gradient">Canaveral</span></>}>
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <Card className="flex flex-col justify-between">
             <div>
               <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary text-primary">
                 <Rocket className="h-7 w-7" />
               </div>
-              <h3 className="text-2xl font-bold">Ingresso do Centro Espacial Kennedy</h3>
-              <div className="mt-3 flex items-center gap-2 text-gold">
-                <Star className="h-4 w-4 fill-current" />
-                <span className="font-bold">9,2 / 10</span>
-                <span className="text-sm text-muted-foreground">· 108 opiniões</span>
-              </div>
+              <h3 className="text-2xl font-bold">Base de Lançamento da NASA</h3>
+              <p className="mt-2 text-muted-foreground">Kennedy Space Center · Cabo Canaveral, Flórida</p>
               <div className="mt-5 space-y-2 text-sm text-muted-foreground">
-                <p className="flex items-center gap-2"><CalendarDays className="h-4 w-4 text-primary" /> 15 de setembro de 2026</p>
-                <p className="flex items-center gap-2"><Clock className="h-4 w-4 text-primary" /> Ingresso de 1 dia · audioguia em português</p>
-                <p className="flex items-center gap-2"><Users className="h-4 w-4 text-primary" /> Grupo de empresários</p>
+                <p className="flex items-center gap-2"><CalendarDays className="h-4 w-4 text-primary" /> 09 de setembro de 2026</p>
+                <p className="flex items-center gap-2"><Clock className="h-4 w-4 text-primary" /> Visita completa · audioguia em português</p>
+                <p className="flex items-center gap-2"><Users className="h-4 w-4 text-primary" /> Grupo de 10 empresários</p>
               </div>
             </div>
           </Card>
           <Card>
-            <h4 className="mb-4 text-lg font-bold">O que o ingresso inclui</h4>
+            <h4 className="mb-4 text-lg font-bold">O que a visita inclui</h4>
             <ul className="grid gap-3 sm:grid-cols-2">
-              {kennedyIncludes.map((k) => (
+              {nasaIncludes.map((k) => (
                 <li key={k} className="flex gap-3 text-sm">
                   <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                   <span className="text-muted-foreground">{k}</span>
@@ -301,6 +351,28 @@ function Proposal() {
               ))}
             </ul>
           </Card>
+        </div>
+      </Section>
+
+      {/* IMERSÃO EMPRESARIAL */}
+      <Section id="imersa" eyebrow="Agenda de negócios" title={<>Visitas e <span className="text-gradient">imersões</span> exclusivas</>}>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { icon: Building2, label: "Consulado Brasileiro", desc: "Reunião com o Cônsul Brasileiro na Flórida · 10/set" },
+            { icon: Factory, label: "Operadores Logísticos", desc: "Visita a operadores e fábricas da região de Orlando · 08–09/set" },
+            { icon: Rocket, label: "FBA · Amazon", desc: "Fulfillment by Amazon + centros de distribuição em Miami e Doral · 11/set" },
+            { icon: Briefcase, label: "Setor Imobiliário", desc: "Imersão no mercado imobiliário americano · 10/set" },
+            { icon: ShoppingBag, label: "Benchmarking", desc: "Visita a lojas do setor + Sawgrass Mills · 06, 12 e 13/set" },
+            { icon: Building2, label: "Avenue · Miami", desc: "Visita ao escritório da Avenue em Miami · 14/set" },
+          ].map((item) => (
+            <Card key={item.label} className="transition-transform hover:-translate-y-1">
+              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-secondary text-primary">
+                <item.icon className="h-6 w-6" />
+              </div>
+              <h3 className="text-base font-bold">{item.label}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>
+            </Card>
+          ))}
         </div>
       </Section>
 
@@ -313,22 +385,20 @@ function Proposal() {
             </div>
             <h3 className="text-xl font-bold">Transfer privativo</h3>
             <p className="mt-2 text-muted-foreground">
-              Franca ⇄ Aeroporto de Viracopos (VCP), ida e volta, com conforto e pontualidade para
-              todo o grupo.
+              Franca ⇄ Aeroporto de Viracopos (VCP) — saída 03h de 05/set, retorno 16/set.
             </p>
           </Card>
           <Card>
             <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-secondary text-primary">
               <Car className="h-6 w-6" />
             </div>
-            <h3 className="text-xl font-bold">Aluguel de Van em Orlando</h3>
+            <h3 className="text-xl font-bold">Van Privativa em Orlando</h3>
             <p className="mt-2 text-muted-foreground">
-              Ford Transit Wagon ou similar · 15 passageiros · câmbio automático · KM livre.
+              Ford Transit Wagon ou similar · 15 lugares · uso exclusivo do grupo durante toda a imersão.
             </p>
             <div className="mt-4 flex flex-wrap gap-2 text-xs text-muted-foreground">
-              <span className="rounded-full border border-border bg-secondary px-3 py-1">Retirada 06 set · MCO</span>
-              <span className="rounded-full border border-border bg-secondary px-3 py-1">Devolução 19 set · MCO</span>
-              <span className="rounded-full border border-border bg-secondary px-3 py-1">Motorista adicional grátis</span>
+              <span className="rounded-full border border-border bg-secondary px-3 py-1">Retirada 06/set · MCO</span>
+              <span className="rounded-full border border-border bg-secondary px-3 py-1">Devolução 15/set · MCO</span>
             </div>
           </Card>
         </div>
@@ -340,7 +410,7 @@ function Proposal() {
             </div>
             <div>
               <h3 className="text-xl font-bold">Seguro Viagem</h3>
-              <p className="text-muted-foreground">Tranquilidade do início ao fim da experiência.</p>
+              <p className="text-muted-foreground">05 a 16 de setembro de 2026 · Cobertura total da viagem.</p>
             </div>
           </div>
           <div className="text-left md:text-right">
@@ -365,16 +435,16 @@ function Proposal() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            <Card className="relative overflow-hidden border-primary/40" >
+            <Card className="relative overflow-hidden border-primary/40">
               <div className="absolute right-0 top-0 h-32 w-32 rounded-full opacity-30 blur-3xl" style={{ background: "var(--gradient-accent)" }} />
               <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-secondary text-primary">
                 <CreditCard className="h-6 w-6" />
               </div>
               <p className="text-sm uppercase tracking-widest text-muted-foreground">No cartão de crédito</p>
               <p className="mt-3 text-5xl font-bold">
-                12x <span className="text-gradient">R$ 1.507,60</span>
+                12x <span className="text-gradient">R$ 1.258,43</span>
               </p>
-              <p className="mt-2 text-muted-foreground">Parcelamento facilitado em até 12 vezes.</p>
+              <p className="mt-2 text-muted-foreground">Parcelamento facilitado em até 12 vezes sem juros.</p>
             </Card>
 
             <Card className="relative overflow-hidden">
@@ -382,7 +452,7 @@ function Proposal() {
                 <Wallet className="h-6 w-6" />
               </div>
               <p className="text-sm uppercase tracking-widest text-muted-foreground">À vista no Pix</p>
-              <p className="mt-3 text-5xl font-bold text-gradient">R$ 15.990,00</p>
+              <p className="mt-3 text-5xl font-bold text-gradient">R$ 13.310,82</p>
               <p className="mt-2 text-muted-foreground">Melhor condição para pagamento à vista.</p>
             </Card>
           </div>
@@ -404,22 +474,22 @@ function Proposal() {
               Viajar está nos detalhes · Proposta para Victor Barbieratto
             </p>
           </div>
-          <div className="text-sm text-muted-foreground md:text-right">
-            <p>drkviagens@gmail.com</p>
-            <p>+55 61 99506-1391</p>
+          <div className="flex flex-col items-start gap-4 md:items-end">
+            <div className="text-sm text-muted-foreground md:text-right">
+              <p>drkviagens@gmail.com</p>
+              <p>+55 61 99506-1391</p>
+            </div>
+            <button
+              onClick={() => window.print()}
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-5 py-2.5 text-sm font-medium transition-colors hover:bg-primary hover:text-primary-foreground"
+            >
+              <Download className="h-4 w-4" />
+              Baixar proposta em PDF
+            </button>
           </div>
         </div>
       </footer>
     </main>
-  );
-}
-
-function Pill({ icon: Icon, text }: { icon: React.ElementType; text: string }) {
-  return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-border glass px-4 py-2 text-sm font-medium">
-      <Icon className="h-4 w-4 text-primary" />
-      {text}
-    </span>
   );
 }
 
@@ -429,12 +499,14 @@ function Flight({
   from,
   to,
   duration,
+  flight,
 }: {
   tag: string;
   date: string;
   from: { time: string; code: string; name: string };
   to: { time: string; code: string; name: string };
   duration: string;
+  flight?: string;
 }) {
   return (
     <Card>
@@ -442,7 +514,10 @@ function Flight({
         <span className="rounded-full bg-secondary px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
           {tag}
         </span>
-        <span className="text-sm text-muted-foreground">{date}</span>
+        <div className="text-right">
+          <span className="text-sm text-muted-foreground">{date}</span>
+          {flight && <p className="text-xs text-muted-foreground/70">{flight}</p>}
+        </div>
       </div>
       <div className="flex items-center gap-4">
         <div className="flex-1">
