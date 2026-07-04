@@ -442,7 +442,7 @@ function Proposal() {
               </div>
               <p className="text-sm uppercase tracking-widest text-muted-foreground">No cartão de crédito</p>
               <p className="mt-3 text-5xl font-bold">
-                12x <span className="text-gradient">R$ 1.258,43</span>
+                12x <span className="text-gradient">R$ 1.409,69</span>
               </p>
               <p className="mt-2 text-muted-foreground">Parcelamento facilitado em até 12 vezes sem juros.</p>
             </Card>
@@ -452,7 +452,7 @@ function Proposal() {
                 <Wallet className="h-6 w-6" />
               </div>
               <p className="text-sm uppercase tracking-widest text-muted-foreground">À vista no Pix</p>
-              <p className="mt-3 text-5xl font-bold text-gradient">R$ 13.310,82</p>
+              <p className="mt-3 text-5xl font-bold text-gradient">R$ 14.910,82</p>
               <p className="mt-2 text-muted-foreground">Melhor condição para pagamento à vista.</p>
             </Card>
           </div>
